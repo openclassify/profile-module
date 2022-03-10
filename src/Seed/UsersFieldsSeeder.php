@@ -29,11 +29,53 @@ class UsersFieldsSeeder extends Seeder
                 ]
             ],
             [
-                'slug'      => 'utm_source',
+                'slug' => 'utm_source',
                 'namespace' => 'users',
-                'type'      => 'anomaly.field_type.text',
-                'name'      => 'visiosoft.module.profile::field.utm_source.name',
-                'locked'    => false,
+                'type' => 'anomaly.field_type.text',
+                'name' => 'visiosoft.module.profile::field.utm_source.name',
+                'locked' => false,
+            ],
+            [
+                'slug' => 'utm_medium',
+                'namespace' => 'users',
+                'type' => 'anomaly.field_type.text',
+                'name' => 'visiosoft.module.profile::field.utm_medium.name',
+                'locked' => false,
+            ],
+            [
+                'slug' => 'utm_campaign',
+                'namespace' => 'users',
+                'type' => 'anomaly.field_type.text',
+                'name' => 'visiosoft.module.profile::field.utm_campaign.name',
+                'locked' => false,
+            ],
+            [
+                'slug' => 'utm_term',
+                'namespace' => 'users',
+                'type' => 'anomaly.field_type.text',
+                'name' => 'visiosoft.module.profile::field.utm_term.name',
+                'locked' => false,
+            ],
+            [
+                'slug' => 'utm_content',
+                'namespace' => 'users',
+                'type' => 'anomaly.field_type.text',
+                'name' => 'visiosoft.module.profile::field.utm_content.name',
+                'locked' => false,
+            ],
+            [
+                'slug' => 'browser_lang',
+                'namespace' => 'users',
+                'type' => 'anomaly.field_type.text',
+                'name' => 'visiosoft.module.profile::field.browser_lang.name',
+                'locked' => false,
+            ],
+            [
+                'slug' => 'location_for_ip',
+                'namespace' => 'users',
+                'type' => 'anomaly.field_type.text',
+                'name' => 'visiosoft.module.profile::field.location_for_ip.name',
+                'locked' => false,
             ],
             [
                 'name' => 'visiosoft.module.profile::field.country.name',
@@ -131,39 +173,34 @@ class UsersFieldsSeeder extends Seeder
                     "picker" => true,
                 ]
             ],
-	        [
-		        'name' => 'visiosoft.module.profile::field.education.name',
-		        'slug' => 'education',
-		        'type' => 'anomaly.field_type.text',
-	        ],
-	        [
-		        'name' => 'visiosoft.module.profile::field.state_of_education.name',
-		        'slug' => 'state_of_education',
-		        'type' => 'anomaly.field_type.text',
-	        ],
-	        [
-		        'name' => 'visiosoft.module.profile::field.profession.name',
-		        'slug' => 'profession',
-		        'type' => 'anomaly.field_type.select',
-	        ],
-	        [
-		        'name' => 'visiosoft.module.profile::field.education_part.name',
-		        'slug' => 'education_part',
-		        'type' => 'anomaly.field_type.select',
-	        ],
-	        [
-	        	'name' => 'visiosoft.module.profile::field.facebook_address.name',
-		        'slug' => 'facebook_address',
-		        'type' => 'anomaly.field_type.text',
-	        ],
-	        [
-	        	'name' => 'visiosoft.module.profile::field.google_address.name',
-		        'slug' => 'google_address',
-		        'type' => 'anomaly.field_type.text',
-	        ],
             [
-                'name' => 'visiosoft.module.profile::field.utm_source.name',
-                'slug' => 'utm_source',
+                'name' => 'visiosoft.module.profile::field.education.name',
+                'slug' => 'education',
+                'type' => 'anomaly.field_type.text',
+            ],
+            [
+                'name' => 'visiosoft.module.profile::field.state_of_education.name',
+                'slug' => 'state_of_education',
+                'type' => 'anomaly.field_type.text',
+            ],
+            [
+                'name' => 'visiosoft.module.profile::field.profession.name',
+                'slug' => 'profession',
+                'type' => 'anomaly.field_type.select',
+            ],
+            [
+                'name' => 'visiosoft.module.profile::field.education_part.name',
+                'slug' => 'education_part',
+                'type' => 'anomaly.field_type.select',
+            ],
+            [
+                'name' => 'visiosoft.module.profile::field.facebook_address.name',
+                'slug' => 'facebook_address',
+                'type' => 'anomaly.field_type.text',
+            ],
+            [
+                'name' => 'visiosoft.module.profile::field.google_address.name',
+                'slug' => 'google_address',
                 'type' => 'anomaly.field_type.text',
             ],
         ];

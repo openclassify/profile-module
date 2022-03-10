@@ -41,10 +41,6 @@ class Register2FormHandler
         $fields['display_name'] = $fields['first_name'] . " " . $fields['last_name'];
         $fields['gsm_phone'] = $builder->getPostValue('phone');
 
-        if (isset($_COOKIE['utm_source'])) {
-            $fields['utm_source'] = $_COOKIE['utm_source'];
-        }
-
         unset(
             $fields['phone'],
             $fields['accept_protection_law'],
@@ -59,6 +55,26 @@ class Register2FormHandler
 
         /* @var UserInterface $user */
         $user = $register;
+
+        $user->setAttribute('utm_source', (isset($_COOKIE['utm_source'])) ? $_COOKIE['utm_source'] : null);
+        $user->setAttribute('utm_medium', (isset($_COOKIE['utm_medium'])) ? $_COOKIE['utm_medium'] : null);
+        $user->setAttribute('utm_campaign', (isset($_COOKIE['utm_campaign'])) ? $_COOKIE['utm_campaign'] : null);
+        $user->setAttribute('utm_term', (isset($_COOKIE['utm_term'])) ? $_COOKIE['utm_term'] : null);
+        $user->setAttribute('utm_content', (isset($_COOKIE['utm_content'])) ? $_COOKIE['utm_content'] : null);
+        $user->setAttribute('browser_lang', substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+
+        //Save ip location
+        try {
+            $location = file_get_contents("https://ipinfo.io/json");
+            $location = json_decode($location, true);
+            $user->setAttribute('location_for_ip', $location['country']);
+        } catch (\Exception $exception) {
+        }
+
+
+        $user->save();
+
+
         $builder->setFormEntry($register);
 
         $activator->start($user);
@@ -79,13 +95,13 @@ class Register2FormHandler
                 break;
         }
 
-	    $user = $builder->getFormEntry();
+        $user = $builder->getFormEntry();
 
-	    foreach ($builder->getRoles() as $role) {
-		    if ($role = $this->dispatch(new GetRole($role))) {
-			    $user->attachRole($role);
-		    }
-	    }
+        foreach ($builder->getRoles() as $role) {
+            if ($role = $this->dispatch(new GetRole($role))) {
+                $user->attachRole($role);
+            }
+        }
 
         $events->dispatch(new UserHasRegistered($user));
     }

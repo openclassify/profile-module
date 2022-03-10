@@ -187,9 +187,14 @@ class ProfileModuleServiceProvider extends AddonServiceProvider
 
     public function boot(AddonCollection $addonCollection)
     {
-        if ($utmSource = request('utm_source')) {
-            setcookie('utm_source', $utmSource);
-        }
+        $request = app('Illuminate\Http\Request');
+
+        ($utm_source = $request->get('utm_source')) ? setcookie('utm_source', $utm_source) : null;
+        ($utm_medium = $request->get('utm_medium')) ? setcookie('utm_medium', $utm_medium) : null;
+        ($utm_campaign = $request->get('utm_campaign')) ? setcookie('utm_campaign', $utm_campaign) : null;
+        ($utm_term = $request->get('utm_term')) ? setcookie('utm_term', $utm_term) : null;
+        ($utm_content = $request->get('utm_content')) ? setcookie('utm_content', $utm_content) : null;
+
 
         $slug = 'export';
         $section = [
