@@ -160,6 +160,7 @@ class ProfileModuleServiceProvider extends AddonServiceProvider
 
     protected $aliases = [
         'Excel' => Excel::class,
+        'Anomaly\UsersModule\User\UserApiCollection' => \Visiosoft\ProfileModule\UserApiCollection::class
     ];
 
     protected $bindings = [
