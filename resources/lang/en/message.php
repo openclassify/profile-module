@@ -43,4 +43,9 @@ return [
     // Register
     'recaptcha_field_is_required' => 'reCaptcha field is required.',
     'failed_to_validate_captcha' => 'Failed to validate captcha.',
+
+    'found_in' => ':to not found in :source!',
+
+    'email_address_in_use' => 'This email address is in use. Please try a different email address!',
+    'error' => 'Something went wrong. Please contact your system administrator!'
 ];
