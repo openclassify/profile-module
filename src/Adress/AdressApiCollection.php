@@ -92,6 +92,10 @@ class AdressApiCollection extends AdressRepository
             throw new \Exception(trans('visiosoft.module.connect::message.not_found', ['name' => 'Address']), 404);
         }
 
+        if ($address->created_by_id != Auth::id()) {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         if (!empty($params['country_id'])) {
             if (!$country = $country_repository->find($params['country_id'])) {
                 throw new \Exception(trans('visiosoft.module.connect::message.not_found', ['name' => 'Country']), 404);
@@ -168,6 +172,10 @@ class AdressApiCollection extends AdressRepository
             throw new \Exception(trans('visiosoft.module.connect::message.not_found', ['name' => 'Address']), 404);
         }
 
+        if ($address->created_by_id != Auth::id()) {
+            throw new \Exception(trans('streams::message.access_denied'), 403);
+        }
+
         $address->update([
             'deleted_at' => Carbon::now(),
             'updated_by_id' => Auth::id(),
@@ -207,6 +215,6 @@ class AdressApiCollection extends AdressRepository
             return $address;
         }
 
-        return $this->newQuery()->select(['adress_name', 'id']);
+        return $this->newQuery()->where('created_by_id', Auth::id())->select(['adress_name', 'id']);
     }
 }
