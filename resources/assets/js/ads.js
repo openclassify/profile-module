@@ -159,11 +159,6 @@ function dropdownRow(id, type) {
         delete_ad +
         "</a>\n";
 
-    dropdown += "<a class='dropdown-item text-info' href='/advs/extend/" + id + "'>" +
-        "<i class='fas fa-calendar'></i> " +
-        extend_ad +
-        "</a>\n";
-
     if (Object.keys(userStatus).length) {
         let statusItems = ''
         for (const status in userStatus) {
