@@ -1,62 +1,69 @@
 <?php namespace Visiosoft\ProfileModule\Profile;
 
 use Anomaly\UsersModule\User\User;
+use Illuminate\Support\Facades\Schema;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 
 class UsersExport implements WithMapping, FromCollection, WithHeadings
 {
+    protected $cols, $data;
+    public function __construct()
+    {
+        $data = User::all();
+        $firstUser = $data->first();
+        $cols = [];
+        if (!empty($firstUser)) {
+            $firstUser = $firstUser->makeHidden([
+                'password',
+                'remember_token',
+                'activation_code',
+                'reset_code',
+                'updated_at',
+                'updated_by_id',
+                'deleted_at',
+                'created_by_id',
+                'sort_order'
+            ])->toArray();
+            foreach ($firstUser as $key => $item) {
+                $cols[] = $key;
+            }
+        }
+        $this->data = $data;
+        $this->cols = $cols;
+    }
+
     public function collection()
     {
-        return User::all();
+        return $this->data;
     }
 
     public function map($user): array
     {
-        return [
-            $user->email,
-            $user->username,
-            $user->first_name,
-            $user->last_name,
-            $user->display_name,
-            $user->ip_address,
-            $user->country_id,
-            $user->city,
-            $user->district,
-            $user->neighborhood,
-            $user->village,
-            $user->gsm_phone,
-            $user->land_phone,
-            $user->office_phone,
-            $user->phone_number,
-            $user->register_type,
-            $user->identification_number,
-            $user->created_at,
-        ];
+        $userData = $user->makeHidden([
+            'password',
+            'remember_token',
+            'activation_code',
+            'reset_code',
+            'updated_at',
+            'updated_by_id',
+            'deleted_at',
+            'created_by_id',
+            'sort_order'
+        ])->toArray();
+        $row = [];
+        if (!empty($userData)) {
+            foreach ($userData as $key => $data) {
+                $row[] = $data;
+            }
+        }
+        return $row;
     }
 
     public function headings(): array
     {
-        return [
-            'email address',
-            'username',
-            'first_name',
-            'last_name',
-            'display_name',
-            'ip_address',
-            'country_id',
-            'city',
-            'district',
-            'neighborhood',
-            'village',
-            'gsm_phone',
-            'land_phone',
-            'office_phone',
-            'phone_number',
-            'register_type',
-            'identification_number',
-            'created_at',
-        ];
+
+        return $this->cols;
     }
 }

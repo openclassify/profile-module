@@ -506,4 +506,7 @@ return [
     'member_login_reports' => 'Member Login Reports',
 
     'profile_instruction' => 'You can edit your profile information from this page.',
+    'utm_source' => [
+        'name' => 'UTM Source'
+    ],
 ];
