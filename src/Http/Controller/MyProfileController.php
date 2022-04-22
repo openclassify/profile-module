@@ -28,7 +28,7 @@ class MyProfileController extends PublicController
 
     public function __construct(
         AdressRepositoryInterface $adressRepository,
-        UserRepositoryInterface $userRepository
+        UserRepositoryInterface   $userRepository
     )
     {
         parent::__construct();
@@ -103,13 +103,13 @@ class MyProfileController extends PublicController
         $auto_approved = setting_value('visiosoft.module.advs::auto_approve');
         $default_published_time = setting_value('visiosoft.module.advs::default_published_time');
 
-        if ($auto_approved == true AND $type == 'pending_admin') {
+        if ($auto_approved == true and $type == 'pending_admin') {
             $type = "approved";
         }
 
         if ($type == "approved") {
             $advModel->publish_at_Ads($id);
-            if ($ad->finish_at == NULL AND $type == "approved") {
+            if ($ad->finish_at == NULL and $type == "approved") {
                 if ($advModel->is_enabled('packages')) {
                     $packageModel = new PackageModel();
                     $published_time = $packageModel->reduceTimeLimit($ad->cat1);
@@ -272,5 +272,19 @@ class MyProfileController extends PublicController
             $education = EducationPartModel::query()->where('education_id', $request->education)->get()->sortBy('name');
         }
         return response()->json(['data' => $education], 200);
+    }
+
+    public function getIPLocation()
+    {
+        $location = file_get_contents("https://ipinfo.io/json");
+        $location = json_decode($location, true);
+
+        return $this->response->json([
+            'success' => true,
+            'data'=> [
+                'country' => trans('streams::country.'.$location['country']),
+                'language' => trans('streams::locale.'.strtolower($location['country']).'.name')
+            ]
+        ]);
     }
 }
