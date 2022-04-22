@@ -276,7 +276,8 @@ class MyProfileController extends PublicController
 
     public function getIPLocation()
     {
-        $location = file_get_contents("https://ipinfo.io/json");
+        $ip = $this->request->ip();
+        $location = file_get_contents("https://ipinfo.io/$ip/json");
         $location = json_decode($location, true);
 
         return $this->response->json([
