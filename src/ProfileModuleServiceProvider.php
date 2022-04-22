@@ -156,6 +156,9 @@ class ProfileModuleServiceProvider extends AddonServiceProvider
         // Admin ReportController
         'admin/api/profile/report/latest' => 'Visiosoft\ProfileModule\Http\Controller\Admin\ReportController@latest',
         'admin/api/profile/report/login' => 'Visiosoft\ProfileModule\Http\Controller\Admin\ReportController@login',
+        'api/get-user-location' => [
+            'uses' => 'Visiosoft\ProfileModule\Http\Controller\MyProfileController@getIPLocation',
+        ],
     ];
 
     protected $aliases = [
