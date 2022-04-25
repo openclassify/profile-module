@@ -191,7 +191,7 @@ function addDropdownBlock() {
     const dropdowns = $('.my-ads-dropdown')
     for (let i = 0; i < dropdowns.length; i++) {
         const currentDropdown = $(dropdowns[i])
-        $('> .dropdown-menu', currentDropdown).append(dropdownBlock.replace(':id', currentDropdown.data('id')))
+        $('> .dropdown-menu', currentDropdown).append(dropdownBlock.replaceAll(':id', currentDropdown.data('id')))
     }
 }
 
