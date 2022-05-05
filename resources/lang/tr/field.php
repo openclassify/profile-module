@@ -495,4 +495,19 @@ return [
     'receive_messages_email' => [
         'name' => 'Mesaj E-postası Al',
     ],
+    'utm_source' => [
+        'name' => 'UTM Source'
+    ],'utm_medium' => [
+        'name' => 'UTM Medium'
+    ],'utm_campaign' => [
+        'name' => 'UTM Kampanya'
+    ],'utm_term' => [
+        'name' => 'UTM Term'
+    ],'utm_content' => [
+        'name' => 'UTM İçerik'
+    ],'browser_lang' => [
+        'name' => 'Tarayıcı Dili'
+    ],'location_for_ip' => [
+        'name' => 'IP Konumu'
+    ],
 ];
