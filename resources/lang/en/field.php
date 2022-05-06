@@ -508,5 +508,17 @@ return [
     'profile_instruction' => 'You can edit your profile information from this page.',
     'utm_source' => [
         'name' => 'UTM Source'
+    ],'utm_medium' => [
+        'name' => 'UTM Medium'
+    ],'utm_campaign' => [
+        'name' => 'UTM Campaign'
+    ],'utm_term' => [
+        'name' => 'UTM Term'
+    ],'utm_content' => [
+        'name' => 'UTM Content'
+    ],'browser_lang' => [
+        'name' => 'Browser Language'
+    ],'location_for_ip' => [
+        'name' => 'Location for IP'
     ],
 ];
