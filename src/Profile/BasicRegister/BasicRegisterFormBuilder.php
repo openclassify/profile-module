@@ -18,7 +18,7 @@ class BasicRegisterFormBuilder extends FormBuilder
     ];
 
     protected $options = [
-        'redirect' => '/',
+        'redirect' => '/login',
         'success_message' => 'anomaly.module.users::success.user_registered',
         'pending_message' => 'anomaly.module.users::message.pending_admin_activation',
         'confirm_message' => 'anomaly.module.users::message.pending_email_activation',

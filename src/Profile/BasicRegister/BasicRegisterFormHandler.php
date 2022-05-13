@@ -82,6 +82,6 @@ class BasicRegisterFormHandler
 		    }
 	    }
 
-        $events->dispatch(new UserHasRegistered($user));
+//        $events->dispatch(new UserHasRegistered($user));
     }
 }

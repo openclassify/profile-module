@@ -75,6 +75,8 @@ class BasicRegisterFormFields
                     ],
                     'password' => [
                         'instructions' => false,
+                        'required' => true,
+                        'rules' => ['min:8']
                     ],
                 ]
             )
