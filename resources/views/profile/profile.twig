@@ -75,9 +75,34 @@
                                             <p class="mb-0 mr-4">
                                                 {{ trans('visiosoft.module.profile::message.disable_account') }}
                                             </p>
-                                            <a href="{{ url_route("visiosoft.module.profile::profile_close_account") }}" class="btn btn-danger account-freeze text-white">
+                                            <button type="button" data-toggle="modal" data-target="#freezeModal" class="btn btn-danger account-freeze text-white">
                                                 {{ trans("visiosoft.module.profile::field.disable_account.name") }}
-                                            </a>
+                                            </button>
+                                            <div class="modal" id="freezeModal">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <!-- Modal body -->
+                                                        <div class="modal-body">
+                                                            <b style="font-size: x-large">{{ trans('visiosoft.module.profile::message.disable_account') }}</b>
+                                                        </div>
+
+                                                        <!-- Modal footer -->
+                                                        <div class="modal-footer">
+                                                            <a href="{{ url_route("visiosoft.module.profile::profile_close_account") }}" class="btn btn-danger account-freeze text-white">
+                                                                {{ trans("visiosoft.module.profile::field.disable_account.name") }}
+                                                            </a>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
