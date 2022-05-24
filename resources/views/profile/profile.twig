@@ -69,7 +69,12 @@
                                     <div class="form-group text-right">
                                         {{ userForm.actions|raw }}
                                     </div>
-
+                                    <div class="form-group">
+                                        <label class="control-label mb-1">
+                                            {{ trans("visiosoft.module.profile::field.email.name") }}
+                                        </label>
+                                        {{ userForm.fields.email.input|raw }}
+                                    </div>
                                     <div class="account--disable--content d-flex align-item-center justify-content-center mx-auto">
                                         <div class="d-flex justify-content-center align-items-center">
                                             <p class="mb-0 mr-4">
