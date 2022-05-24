@@ -82,4 +82,10 @@ return [
             'default_value' => true,
         ]
     ],
+    'show_upload_file' => [
+        'type' => 'anomaly.field_type.boolean',
+        'config' => [
+            'default_value' => false,
+        ]
+    ]
 ];
