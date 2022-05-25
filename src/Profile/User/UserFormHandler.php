@@ -20,6 +20,7 @@ class UserFormHandler
         $data = $builder->getPostData();
 
         $data['file_id'] = $builder->getPostValue('file');
+        $data['user_file_id'] = $builder->getPostValue('user_file');
 
         $user = $userModel->find(\auth()->id());
         if ($user->email != $data['email']) {

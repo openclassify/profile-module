@@ -509,5 +509,7 @@ return [
         'name' => 'Tarayıcı Dili'
     ],'location_for_ip' => [
         'name' => 'IP Konumu'
-    ],
+    ],'user_file' => [
+        'name' => 'Kullanıcı Dosyası'
+    ]
 ];

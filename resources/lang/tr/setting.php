@@ -55,4 +55,8 @@ return [
         'name' => 'Süre Uzatma Seçeneklerini Göster',
         'instructions' => 'Profilim İlanlar sayfasında bulunan Süre uzatma seçeneklerini temsil eder.',
     ],
+    'show_upload_file' => [
+        'name' => 'Dosya Yüklemeyi Göster',
+        'instructions' => 'Profile güncellenirken dosya yüklemeyi gösterir.'
+    ]
 ];

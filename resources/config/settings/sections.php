@@ -20,6 +20,7 @@ return [
                     'education',
                     'state_of_education',
                     'profession',
+                    'show_upload_file',
                 ],
             ],
             'recaptcha' => [
