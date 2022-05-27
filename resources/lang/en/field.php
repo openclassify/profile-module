@@ -520,5 +520,7 @@ return [
         'name' => 'Browser Language'
     ],'location_for_ip' => [
         'name' => 'Location for IP'
-    ],
+    ],'user_file' => [
+        'name' => 'User File'
+    ]
 ];

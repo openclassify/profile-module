@@ -55,4 +55,8 @@ return [
         'name' => 'Show Extends Actions',
         'instructions' => 'Represents the Extends options available on the my profile Ads page.',
     ],
+    'show_upload_file' => [
+        'name' => 'Show Upload File',
+        'instructions' => 'Show upload file when profile updating.',
+    ]
 ];

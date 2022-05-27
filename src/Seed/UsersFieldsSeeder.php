@@ -1,5 +1,7 @@
 <?php namespace Visiosoft\ProfileModule\Seed;
 
+use Anomaly\FilesModule\Disk\Contract\DiskRepositoryInterface;
+use Anomaly\FilesModule\Folder\Contract\FolderRepositoryInterface;
 use Anomaly\Streams\Platform\Assignment\Contract\AssignmentRepositoryInterface;
 use Anomaly\Streams\Platform\Database\Seeder\Seeder;
 use Anomaly\Streams\Platform\Field\Contract\FieldRepositoryInterface;
@@ -8,6 +10,19 @@ use Visiosoft\LocationModule\Country\CountryModel;
 
 class UsersFieldsSeeder extends Seeder
 {
+
+    protected $disks;
+    protected $folders;
+
+    public function __construct(
+        DiskRepositoryInterface $disks,
+        FolderRepositoryInterface $folders
+    )
+    {
+        $this->disks = $disks;
+        $this->folders = $folders;
+    }
+
     public function run(
         FieldRepositoryInterface      $fieldRepository,
         AssignmentRepositoryInterface $assignmentRepository,
@@ -203,6 +218,15 @@ class UsersFieldsSeeder extends Seeder
                 'slug' => 'google_address',
                 'type' => 'anomaly.field_type.text',
             ],
+            [
+                'name' => 'visiosoft.module.profile::field.user_file.name',
+                'slug' => 'user_file',
+                'type' => 'visiosoft.field_type.singlefile',
+                'config' => [
+                    'folders' => ["user_files"],
+                    'mode' => 'upload',
+                ]
+            ],
         ];
 
         foreach ($customFields as $customField) {
@@ -230,5 +254,28 @@ class UsersFieldsSeeder extends Seeder
                 ]);
             }
         }
+
+        //User File Folder
+        if (is_null($this->folders->findBy('slug', 'user_files'))) {
+            $disk = $this->disks->findBySlug('local');
+
+            $this->folders->create([
+                'en' => [
+                    'name' => 'User Files',
+                    'description' => 'Folder for user files.',
+                ],
+                'tr' => [
+                    'name' => 'Kullanıcı Dosyaları',
+                    'description' => 'Kullanıcı Dosyaları Klasörü.',
+                ],
+                'slug' => 'user_files',
+                'disk' => $disk,
+                'allowed_types' => [
+                    'jpg', 'jpeg', 'png', 'pdf'
+                ],
+            ]);
+        }
+
+
     }
 }
