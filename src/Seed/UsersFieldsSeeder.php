@@ -24,9 +24,9 @@ class UsersFieldsSeeder extends Seeder
     }
 
     public function run(
-        FieldRepositoryInterface $fieldRepository,
+        FieldRepositoryInterface      $fieldRepository,
         AssignmentRepositoryInterface $assignmentRepository,
-        StreamRepositoryInterface $streamRepository
+        StreamRepositoryInterface     $streamRepository
     )
     {
         $namespace = 'users';
@@ -245,7 +245,9 @@ class UsersFieldsSeeder extends Seeder
                 }
 
                 $field = $fieldRepository->create($data);
+            }
 
+            if (empty($assignmentRepository->findByStreamAndField($stream, $field))) {
                 $assignmentRepository->create([
                     'stream_id' => $stream->id,
                     'field_id' => $field->id
