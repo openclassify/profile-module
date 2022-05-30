@@ -12,7 +12,7 @@ return [
     'adress' => [
         'name'   => 'Un vestito',
         'option' => [
-            'read'   => 'Sai leggere l\\'indirizzo?        ',
+            'read'   => 'Sai leggere l\'indirizzo?        ',
             'write'  => 'Può creare / modificare l\'istruzione?',
             'delete' => 'Può eliminare l\'istruzione?',
         ],
