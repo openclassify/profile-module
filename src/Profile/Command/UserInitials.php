@@ -19,7 +19,7 @@ class UserInitials
         $acronym = "";
 
         foreach ($words as $w) {
-            $acronym .= $w[0];
+            $acronym .= mb_substr($w, 0, 1);
         }
 
         return $acronym;
