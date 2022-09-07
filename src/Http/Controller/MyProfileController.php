@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Visiosoft\AdvsModule\Adv\AdvModel;
 use Visiosoft\AdvsModule\Status\Contract\StatusRepositoryInterface;
+use Visiosoft\GlobalHelperExtension\GlobalHelperExtension;
 use Visiosoft\LocationModule\Country\CountryModel;
 use Visiosoft\AlgoliaModule\Search\SearchModel;
 use Visiosoft\PackagesModule\Http\Controller\PackageFEController;
@@ -25,16 +26,19 @@ class MyProfileController extends PublicController
 {
     private $adressRepository;
     private $userRepository;
+    private $helper;
 
     public function __construct(
         AdressRepositoryInterface $adressRepository,
-        UserRepositoryInterface   $userRepository
+        UserRepositoryInterface   $userRepository,
+        GlobalHelperExtension     $helper
     )
     {
         parent::__construct();
 
         $this->adressRepository = $adressRepository;
         $this->userRepository = $userRepository;
+        $this->helper = $helper;
     }
 
     protected $user;
@@ -66,8 +70,7 @@ class MyProfileController extends PublicController
 
     public function extendAds($id, $type, SettingRepositoryInterface $settings)
     {
-        $isActivePackages = new AdvModel();
-        $isActivePackages = $isActivePackages->is_enabled('packages');
+        $isActivePackages = $this->helper->is_enabled('module','packages');
 
         if ($isActivePackages) {
             //Search Last Time Packages By User
@@ -110,7 +113,7 @@ class MyProfileController extends PublicController
         if ($type == "approved") {
             $advModel->publish_at_Ads($id);
             if ($ad->finish_at == NULL and $type == "approved") {
-                if ($advModel->is_enabled('packages')) {
+                if ($this->helper->is_enabled('module','packages')) {
                     $packageModel = new PackageModel();
                     $published_time = $packageModel->reduceTimeLimit($ad->cat1);
                     if ($published_time != null) {
@@ -120,8 +123,7 @@ class MyProfileController extends PublicController
                 $advModel->finish_at_Ads($id, $default_published_time);
             }
         }
-        $isActiveAlgolia = new AdvModel();
-        $isActiveAlgolia = $isActiveAlgolia->is_enabled('algolia');
+        $isActiveAlgolia = $this->helper->is_enabled('module','algolia');
         if ($isActiveAlgolia) {
             $algolia = new SearchModel();
             $algolia->updateStatus($id, $type);
