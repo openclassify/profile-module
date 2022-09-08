@@ -66,8 +66,7 @@ class MyProfileController extends PublicController
 
     public function extendAds($id, $type, SettingRepositoryInterface $settings)
     {
-        $isActivePackages = new AdvModel();
-        $isActivePackages = $isActivePackages->is_enabled('packages');
+        $isActivePackages = is_module_installed('visiosoft.module.packages');
 
         if ($isActivePackages) {
             //Search Last Time Packages By User
@@ -110,7 +109,7 @@ class MyProfileController extends PublicController
         if ($type == "approved") {
             $advModel->publish_at_Ads($id);
             if ($ad->finish_at == NULL and $type == "approved") {
-                if ($advModel->is_enabled('packages')) {
+                if (is_module_installed('visiosoft.module.packages')) {
                     $packageModel = new PackageModel();
                     $published_time = $packageModel->reduceTimeLimit($ad->cat1);
                     if ($published_time != null) {
@@ -120,8 +119,7 @@ class MyProfileController extends PublicController
                 $advModel->finish_at_Ads($id, $default_published_time);
             }
         }
-        $isActiveAlgolia = new AdvModel();
-        $isActiveAlgolia = $isActiveAlgolia->is_enabled('algolia');
+        $isActiveAlgolia = is_module_installed('visiosoft.module.algolia');
         if ($isActiveAlgolia) {
             $algolia = new SearchModel();
             $algolia->updateStatus($id, $type);
