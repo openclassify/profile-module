@@ -1,5 +1,6 @@
 <?php namespace Visiosoft\ProfileModule\Profile\Register2;
 
+use Anomaly\UsersModule\User\Validation\ValidatePassword;
 use Visiosoft\ProfileModule\Profile\Validation\ValidateRegister;
 use Visiosoft\ProfileModule\Rules\ReCaptchaRule;
 
@@ -107,6 +108,15 @@ class Register2FormFields
                     ],
                     'password' => [
                         'instructions' => false,
+                        'rules' => [
+                            'valid_password',
+                        ],
+                        'validators' => [
+                            'valid_password' => [
+                                'message' => false,
+                                'handler' => ValidatePassword::class,
+                            ],
+                        ],
                     ],
                 ]
             )
