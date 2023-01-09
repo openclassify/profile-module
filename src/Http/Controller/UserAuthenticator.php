@@ -134,6 +134,6 @@ class UserAuthenticator
         if (\request()->has(['token'])) {
             $this->dispatch(new AuthAuto(\request('token')));
         }
-        return \redirect('/');
+        return \redirect('/profile');
     }
 }
