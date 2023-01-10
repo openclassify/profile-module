@@ -1,24 +1,9 @@
-# Profile Modülü
-Kullanıcılar için tasarlanmış profil editleme modülüdür.Adres modülü ile birlikte yüklenir.
-Kullanıcı profil resmini, kişisel bilgileri ve şifre bilgilerini bu modül ile değiştirebilirler.
+## Profile Modülü
 
-Kullanıcı üye olduğu zaman bir profil tablosu oluşturulur ve yapılacak diğer işlemler güncelleme ile
-kayot edilir.
+Profile Module allows users to add advanced features like Address for openclassify platform
 
-#Önyüz/Front End
-Navigasyon menüsüne eklenir.Seklemeler halinde profil düzenleme,Adres bilgileri vb 
-eklenen modüllerin(Packages,Balances,Orders) yönetimini sağlar. 
+### API Collection
 
-``
-#Admin Panel
-Adreslerin yönetilmesini sağlar.
-
-##Modül Gereklilikleri/Module Requirements
-- ADVS Modülü
-- USERS Modülü
-
-##API Collection
 https://documenter.getpostman.com/view/4871431/UVsQtjhJ
 
-##
-support@visiosoft.com.tr
+See the **[documentation](https://docs.openclassify.com/)** for more information.

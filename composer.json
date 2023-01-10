@@ -1,6 +1,13 @@
 {
   "name": "visiosoft/profile-module",
   "type": "streams-addon",
+  "description": "Profile Module allows users to add advanced features like Address for openclassify platform",
+  "authors": [
+    {
+      "name": "Vedat Akdoğan.",
+      "email": "vedat@visiosoft.com.tr"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "Visiosoft\\ProfileModule\\": "src/"
