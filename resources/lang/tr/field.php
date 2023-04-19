@@ -511,5 +511,12 @@ return [
         'name' => 'IP Konumu'
     ],'user_file' => [
         'name' => 'Kullanıcı Dosyası'
-    ]
+    ],
+    'member' => 'Üye',
+    'registered_at' => 'Kayıt Tarihi',
+    'login_at' => 'Giriş Tarihi',
+    'undefined_member' => 'Bilinmeyen Üye',
+    'new_membership_report' => 'Yeni Üyelik Raporu',
+    'member_login_reports' => 'Üye Giriş Raporları',
+    'profile_instruction' => 'Profil bilgilerinizi bu sayfadan düzenleyebilirsiniz.',
 ];
