@@ -3,8 +3,6 @@
 use Anomaly\Streams\Platform\Addon\AddonCollection;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
 use Anomaly\Streams\Platform\Model\Profile\ProfileEducationEntryModel;
-use Maatwebsite\Excel\ExcelServiceProvider;
-use Maatwebsite\Excel\Facades\Excel;
 use Visiosoft\ProfileModule\Adress\Contract\AdressRepositoryInterface;
 use Visiosoft\ProfileModule\Adress\AdressRepository;
 use Anomaly\Streams\Platform\Model\Profile\ProfileAdressEntryModel;
@@ -185,9 +183,7 @@ class ProfileModuleServiceProvider extends AddonServiceProvider
         'forgot_pass' => ForgotPassFormBuilder::class,
     ];
 
-    protected $providers = [
-        ExcelServiceProvider::class,
-    ];
+    protected $providers = [];
 
     public function boot(AddonCollection $addonCollection)
     {
