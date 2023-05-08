@@ -195,12 +195,12 @@ class ProfileModuleServiceProvider extends AddonServiceProvider
         ($utm_term = $request->get('utm_term')) ? setcookie('utm_term', $utm_term) : null;
         ($utm_content = $request->get('utm_content')) ? setcookie('utm_content', $utm_content) : null;
 
-
-        $slug = 'export';
-        $section = [
-            'title' => 'visiosoft.module.profile::button.export',
-            'href' => route('users::exportUsers'),
-        ];
-        $addonCollection->get('anomaly.module.users')->addSection($slug, $section);
+//        TODO: excel export removed for now
+//        $slug = 'export';
+//        $section = [
+//            'title' => 'visiosoft.module.profile::button.export',
+//            'href' => route('users::exportUsers'),
+//        ];
+//        $addonCollection->get('anomaly.module.users')->addSection($slug, $section);
     }
 }
