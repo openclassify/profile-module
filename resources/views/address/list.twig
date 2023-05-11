@@ -3,8 +3,15 @@
 {% block content %}
     {% embed 'visiosoft.module.profile::profile/index' %}
         {% block detail %}
+
+            <div class="row px-3">
+                <div class="col-md-12 profile-section border profile-wrapper">
+                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-profile" role="tabpanel"
+            aria-labelledby="nav-profile-tab">
+
             <table class="table address-table">
-                <thead class="thead-dark">
+                <thead class="">
                 <tr>
                     <th scope="col">
                         <a href="{{ url_route('visiosoft.module.profile::adress_create') }}"
@@ -44,6 +51,11 @@
                 {% endfor %}
                 </tbody>
             </table>
+
+            </div>
+            </div>
+            </div>
+            </div>
         {% endblock %}
     {% endembed %}
 {% endblock %}
