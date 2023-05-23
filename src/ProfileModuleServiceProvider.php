@@ -3,8 +3,6 @@
 use Anomaly\Streams\Platform\Addon\AddonCollection;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
 use Anomaly\Streams\Platform\Model\Profile\ProfileEducationEntryModel;
-use Maatwebsite\Excel\ExcelServiceProvider;
-use Maatwebsite\Excel\Facades\Excel;
 use Visiosoft\ProfileModule\Adress\Contract\AdressRepositoryInterface;
 use Visiosoft\ProfileModule\Adress\AdressRepository;
 use Anomaly\Streams\Platform\Model\Profile\ProfileAdressEntryModel;
@@ -185,9 +183,7 @@ class ProfileModuleServiceProvider extends AddonServiceProvider
         'forgot_pass' => ForgotPassFormBuilder::class,
     ];
 
-    protected $providers = [
-        ExcelServiceProvider::class,
-    ];
+    protected $providers = [];
 
     public function boot(AddonCollection $addonCollection)
     {
@@ -199,12 +195,12 @@ class ProfileModuleServiceProvider extends AddonServiceProvider
         ($utm_term = $request->get('utm_term')) ? setcookie('utm_term', $utm_term) : null;
         ($utm_content = $request->get('utm_content')) ? setcookie('utm_content', $utm_content) : null;
 
-
-        $slug = 'export';
-        $section = [
-            'title' => 'visiosoft.module.profile::button.export',
-            'href' => route('users::exportUsers'),
-        ];
-        $addonCollection->get('anomaly.module.users')->addSection($slug, $section);
+//        TODO: excel export removed for now
+//        $slug = 'export';
+//        $section = [
+//            'title' => 'visiosoft.module.profile::button.export',
+//            'href' => route('users::exportUsers'),
+//        ];
+//        $addonCollection->get('anomaly.module.users')->addSection($slug, $section);
     }
 }
