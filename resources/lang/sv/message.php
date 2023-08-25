@@ -44,8 +44,8 @@ return [
     'recaptcha_field_is_required' => 'reCaptcha-fält krävs.',
     'failed_to_validate_captcha' => 'Det gick inte att validera captcha.',
 
-    'found_in' => ':to not found in :source!',
+    'found_in' => ':to finns inte i :source!',
 
-    'email_address_in_use' => 'This email address is in use. Please try a different email address!',
-    'error' => 'Something went wrong. Please contact your system administrator!'
+    'email_address_in_use' => 'Den här e-postadressen används. Försök med en annan e-postadress!',
+    'error' => 'Något gick fel. Kontakta din systemadministratör!'
 ];
