@@ -55,4 +55,8 @@ return [
         'name' => 'Visa förlänger åtgärder',
         'instructions' => 'Representerar de alternativ som finns tillgängliga på sidan Min profilannonser.',
     ],
+    'show_upload_file' => [
+        'name' => 'Show Upload File',
+        'instructions' => 'Show upload file when profile updating.',
+    ]
 ];
