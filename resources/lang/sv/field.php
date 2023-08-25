@@ -302,7 +302,7 @@ return [
         'name' => 'Total',
     ],
     'sub_total' => [
-        'name' => 'Sub Total',
+        'name' => 'Sub totalt',
     ],
     'sale' => [
         'name' => 'Försäljning',
@@ -498,29 +498,29 @@ return [
     ],
 
     // Report
-    'member' => 'Member',
-    'registered_at' => 'Registered At',
-    'login_at' => 'Login At',
-    'undefined_member' => 'Undefined Member',
-    'new_membership_report' => 'New Membership Report',
-    'member_login_reports' => 'Member Login Reports',
+    'member' => 'Medlem',
+    'registered_at' => 'Registrerad hos',
+    'login_at' => 'Logga in på',
+    'undefined_member' => 'Odefinierad medlem',
+    'new_membership_report' => 'Ny medlemsrapport',
+    'member_login_reports' => 'Medlemsinloggningsrapporter',
 
-    'profile_instruction' => 'You can edit your profile information from this page.',
+    'profile_instruction' => 'Du kan redigera din profilinformation från den här sidan.',
     'utm_source' => [
-        'name' => 'UTM Source'
+        'name' => 'UTM-källa'
     ],'utm_medium' => [
         'name' => 'UTM Medium'
     ],'utm_campaign' => [
-        'name' => 'UTM Campaign'
+        'name' => 'UTM-kampanj'
     ],'utm_term' => [
         'name' => 'UTM Term'
     ],'utm_content' => [
-        'name' => 'UTM Content'
+        'name' => 'UTM-innehåll'
     ],'browser_lang' => [
-        'name' => 'Browser Language'
+        'name' => 'Webbläsarens språk'
     ],'location_for_ip' => [
-        'name' => 'Location for IP'
+        'name' => 'Plats för IP'
     ],'user_file' => [
-        'name' => 'User File'
+        'name' => 'Användarfil'
     ]
 ];
