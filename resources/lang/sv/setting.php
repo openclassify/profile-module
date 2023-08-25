@@ -5,7 +5,7 @@ return [
         'name' => 'Visa mina annonsflikar',
     ],
     'upload_avatar' => [
-        'name' => 'Avatar Upload',
+        'name' => 'Uppladdning av avatar',
     ],
     'show_tax_office' => [
         'name' => 'Visa fält för skattekontor',
@@ -55,4 +55,8 @@ return [
         'name' => 'Visa förlänger åtgärder',
         'instructions' => 'Representerar de alternativ som finns tillgängliga på sidan Min profilannonser.',
     ],
+    'show_upload_file' => [
+        'name' => 'Visa uppladdningsfil',
+        'instructions' => 'Visa uppladdningsfil när profilen uppdateras.',
+    ]
 ];

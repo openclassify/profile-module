@@ -302,7 +302,7 @@ return [
         'name' => 'Total',
     ],
     'sub_total' => [
-        'name' => 'Sub Total',
+        'name' => 'Sub totalt',
     ],
     'sale' => [
         'name' => 'Försäljning',
@@ -496,4 +496,31 @@ return [
     'receive_messages_email' => [
         'name' => 'Ta emot e-postmeddelanden',
     ],
+
+    // Report
+    'member' => 'Medlem',
+    'registered_at' => 'Registrerad hos',
+    'login_at' => 'Logga in på',
+    'undefined_member' => 'Odefinierad medlem',
+    'new_membership_report' => 'Ny medlemsrapport',
+    'member_login_reports' => 'Medlemsinloggningsrapporter',
+
+    'profile_instruction' => 'Du kan redigera din profilinformation från den här sidan.',
+    'utm_source' => [
+        'name' => 'UTM-källa'
+    ],'utm_medium' => [
+        'name' => 'UTM Medium'
+    ],'utm_campaign' => [
+        'name' => 'UTM-kampanj'
+    ],'utm_term' => [
+        'name' => 'UTM Term'
+    ],'utm_content' => [
+        'name' => 'UTM-innehåll'
+    ],'browser_lang' => [
+        'name' => 'Webbläsarens språk'
+    ],'location_for_ip' => [
+        'name' => 'Plats för IP'
+    ],'user_file' => [
+        'name' => 'Användarfil'
+    ]
 ];
