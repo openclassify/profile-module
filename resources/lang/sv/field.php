@@ -496,4 +496,31 @@ return [
     'receive_messages_email' => [
         'name' => 'Ta emot e-postmeddelanden',
     ],
+
+    // Report
+    'member' => 'Member',
+    'registered_at' => 'Registered At',
+    'login_at' => 'Login At',
+    'undefined_member' => 'Undefined Member',
+    'new_membership_report' => 'New Membership Report',
+    'member_login_reports' => 'Member Login Reports',
+
+    'profile_instruction' => 'You can edit your profile information from this page.',
+    'utm_source' => [
+        'name' => 'UTM Source'
+    ],'utm_medium' => [
+        'name' => 'UTM Medium'
+    ],'utm_campaign' => [
+        'name' => 'UTM Campaign'
+    ],'utm_term' => [
+        'name' => 'UTM Term'
+    ],'utm_content' => [
+        'name' => 'UTM Content'
+    ],'browser_lang' => [
+        'name' => 'Browser Language'
+    ],'location_for_ip' => [
+        'name' => 'Location for IP'
+    ],'user_file' => [
+        'name' => 'User File'
+    ]
 ];
