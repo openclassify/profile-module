@@ -4,7 +4,8 @@
 </div>
 <div class="col-10 col-sm-6 col-md-3 profile-navigation border navbar-side" id="navbarSide">
     <span class="px-3 mb-2 link-unstyled">
-        {{ img('visiosoft.module.profile::images/interface.svg').data|raw }}
+        {% set profilePhoto = auth_user().file_id ? file(auth_user().file_id).make.url : img('visiosoft.module.profile::images/interface.svg').url %}
+        {{ img(profilePhoto).class('overflow-hidden rounded-circle')|raw }}
         <p>
             <a href="{{ url_route('profile::profile') }}" class="link-unstyled mb-0">{{ auth_user().name }}</a>
             {{ addBlock('profile/navigation/username')|raw }}
