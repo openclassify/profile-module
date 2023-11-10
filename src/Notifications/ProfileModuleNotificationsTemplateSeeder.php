@@ -151,7 +151,7 @@ class ProfileModuleNotificationsTemplateSeeder extends Seeder
             ];
 
             foreach ($templates as $template) {
-                $this->dispatchNow(new CreateTemplate($template));
+                $this->dispatchSync(new CreateTemplate($template));
             }
         }
     }
