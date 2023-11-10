@@ -77,7 +77,7 @@ class BasicRegisterFormHandler
 	    $user = $builder->getFormEntry();
 
 	    foreach ($builder->getRoles() as $role) {
-		    if ($role = $this->dispatch(new GetRole($role))) {
+		    if ($role = $this->dispatchSync(new GetRole($role))) {
 			    $user->attachRole($role);
 		    }
 	    }

@@ -132,7 +132,7 @@ class UserAuthenticator
     public function authAuto()
     {
         if (\request()->has(['token'])) {
-            $this->dispatch(new AuthAuto(\request('token')));
+            $this->dispatchSync(new AuthAuto(\request('token')));
         }
         return \redirect('/profile');
     }

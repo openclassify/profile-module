@@ -19,7 +19,7 @@ class OGImage
 
     public function handle(Request $request, Closure $next)
     {
-        if (($ogImage = session()->get('ogImage')) && ($file = $this->dispatch(new GetFile($ogImage)))) {
+        if (($ogImage = session()->get('ogImage')) && ($file = $this->dispatchSync(new GetFile($ogImage)))) {
             $this->template->set(
                 'og_image',
                 $file->make()->url()
