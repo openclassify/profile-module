@@ -83,22 +83,22 @@ class Register2FormHandler
 
         switch ($mode) {
             case 'automatic':
-                dispatch_now(new HandleAutomaticRegistration($builder));
+                dispatch_sync(new HandleAutomaticRegistration($builder));
                 break;
 
             case 'manual':
-                dispatch_now(new HandleManualRegistration($builder));
+                dispatch_sync(new HandleManualRegistration($builder));
                 break;
 
             case 'email':
-                dispatch_now(new HandleEmailRegistration($builder));
+                dispatch_sync(new HandleEmailRegistration($builder));
                 break;
         }
 
         $user = $builder->getFormEntry();
 
         foreach ($builder->getRoles() as $role) {
-            if ($role = $this->dispatch(new GetRole($role))) {
+            if ($role = $this->dispatchSync(new GetRole($role))) {
                 $user->attachRole($role);
             }
         }

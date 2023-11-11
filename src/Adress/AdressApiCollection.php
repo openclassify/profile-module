@@ -17,7 +17,7 @@ class AdressApiCollection extends AdressRepository
         $required_params = ['name', 'first_name', 'last_name', 'gsm_phone', 'country_id', 'city_id',
             'district_id', 'content'];
 
-        $this->dispatch(new CheckRequiredParams($required_params, $params));
+        $this->dispatchSync(new CheckRequiredParams($required_params, $params));
 
         if (isset($params['id'])) {
             unset($params['id']);
@@ -82,7 +82,7 @@ class AdressApiCollection extends AdressRepository
 
     public function edit(array $params)
     {
-        $this->dispatch(new CheckRequiredParams(['id'], $params));
+        $this->dispatchSync(new CheckRequiredParams(['id'], $params));
 
         $city_repository = app(CityRepository::class);
         $district_repository = app(DistrictRepository::class);
@@ -166,7 +166,7 @@ class AdressApiCollection extends AdressRepository
     public function remove(array $params)
     {
 
-        $this->dispatch(new CheckRequiredParams(['id'], $params));
+        $this->dispatchSync(new CheckRequiredParams(['id'], $params));
 
         if (!$address = $this->find($params['id'])) {
             throw new \Exception(trans('visiosoft.module.connect::message.not_found', ['name' => 'Address']), 404);

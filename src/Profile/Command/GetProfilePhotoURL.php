@@ -16,7 +16,7 @@ class GetProfilePhotoURL
 
     public function handle()
     {
-        return $this->user->file ? $this->user->file->make()->url() : $this->dispatchNow(
+        return $this->user->file ? $this->user->file->make()->url() : $this->dispatchSync(
             new MakeImageInstance(
                 'visiosoft.module.profile::images/profile-default.png',
                 'img'

@@ -16,7 +16,7 @@ class ProfileModulePlugin extends Plugin
                 'getAddress',
                 function ($id) {
 
-                    if (!$ad = $this->dispatch(new GetAddress($id))) {
+                    if (!$ad = $this->dispatchSync(new GetAddress($id))) {
                         return null;
                     }
 
@@ -27,7 +27,7 @@ class ProfileModulePlugin extends Plugin
                 'getAddressByUser',
                 function ($user_id) {
 
-                    if (!$ad = $this->dispatch(new GetAddressByUser($user_id))) {
+                    if (!$ad = $this->dispatchSync(new GetAddressByUser($user_id))) {
                         return null;
                     }
 
@@ -38,7 +38,7 @@ class ProfileModulePlugin extends Plugin
                 'getProfileDetail',
                 function ($user_id) {
 
-                    if (!$ad = $this->dispatch(new GetProfileDetail($user_id))) {
+                    if (!$ad = $this->dispatchSync(new GetProfileDetail($user_id))) {
                         return null;
                     }
 
@@ -48,13 +48,13 @@ class ProfileModulePlugin extends Plugin
             new \Twig_SimpleFunction(
                 'profilePhoto',
                 function ($user) {
-                    return $this->dispatch(new GetProfilePhotoURL($user));
+                    return $this->dispatchSync(new GetProfilePhotoURL($user));
                 }
             ),
             new \Twig_SimpleFunction(
                 'user_initials',
                 function ($user) {
-                    return $this->dispatch(new UserInitials($user));
+                    return $this->dispatchSync(new UserInitials($user));
                 }
             ),
         ];

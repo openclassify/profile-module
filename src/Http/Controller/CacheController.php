@@ -9,7 +9,7 @@ class CacheController extends PublicController
     public function getUserInfo()
     {
         $user = auth()->user();
-        $profile_img =  $user ? $this->dispatch(
+        $profile_img =  $user ? $this->dispatchSync(
             new MakeImageInstance($user->file ?: 'theme::images/no_profile.svg', 'img')
         )->url() : $user;
         $user = $user ? $user->name() : $user;
