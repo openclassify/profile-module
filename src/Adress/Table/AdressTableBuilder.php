@@ -11,7 +11,7 @@ class AdressTableBuilder extends TableBuilder
                 'adress_name',
             ],
         ],
-        'user',
+        //'user', // If there are too many users, it causes page 502 issue.
     ];
 
     protected $columns = [
