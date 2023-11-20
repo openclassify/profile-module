@@ -42,7 +42,7 @@ class MyProfileController extends PublicController
     public function home(ProfileFormBuilder $form)
     {
         $advs_count = new AdvModel();
-        $advs_count = count($advs_count->myAdvsByUser()->get());
+        $advs_count = $advs_count->myAdvsByUser()->count();
 
         $user = $this->userRepository->find(Auth::id());
 
