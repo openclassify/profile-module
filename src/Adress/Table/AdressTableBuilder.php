@@ -14,7 +14,7 @@ class AdressTableBuilder extends TableBuilder
         ],
         'user' => [
             'exact' => true,
-            'placeholder'=> 'visiosoft.module.advs::field.user',
+            'placeholder'=> 'visiosoft.module.profile::field.user.name',
             'filter' => 'select',
             'query' => UserFilterQuery::class,
         ],
