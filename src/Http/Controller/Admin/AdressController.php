@@ -21,6 +21,8 @@ class AdressController extends AdminController
             ],
         ]));
 
+        $table->addAsset('scripts.js', 'visiosoft.module.profile::js/address-table-filters.js');
+
         return $table->render();
     }
 

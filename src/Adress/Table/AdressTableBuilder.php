@@ -1,6 +1,7 @@
 <?php namespace Visiosoft\ProfileModule\Adress\Table;
 
 use Anomaly\Streams\Platform\Ui\Table\TableBuilder;
+use Visiosoft\ProfileModule\Address\Table\Filter\UserFilterQuery;
 
 class AdressTableBuilder extends TableBuilder
 {
@@ -11,7 +12,12 @@ class AdressTableBuilder extends TableBuilder
                 'adress_name',
             ],
         ],
-        //'user', // If there are too many users, it causes page 502 issue.
+        'user' => [
+            'exact' => true,
+            'placeholder'=> 'visiosoft.module.profile::field.user.name',
+            'filter' => 'select',
+            'query' => UserFilterQuery::class,
+        ],
     ];
 
     protected $columns = [
