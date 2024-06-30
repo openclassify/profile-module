@@ -12,7 +12,7 @@ class ProfileModulePlugin extends Plugin
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'getAddress',
                 function ($id) {
 
@@ -23,7 +23,7 @@ class ProfileModulePlugin extends Plugin
                     return $ad;
                 }
             ),
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'getAddressByUser',
                 function ($user_id) {
 
@@ -34,7 +34,7 @@ class ProfileModulePlugin extends Plugin
                     return $ad;
                 }
             ),
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'getProfileDetail',
                 function ($user_id) {
 
@@ -45,13 +45,13 @@ class ProfileModulePlugin extends Plugin
                     return $ad;
                 }
             ),
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'profilePhoto',
                 function ($user) {
                     return $this->dispatchSync(new GetProfilePhotoURL($user));
                 }
             ),
-            new \Twig_SimpleFunction(
+            new \Twig\TwigFunction(
                 'user_initials',
                 function ($user) {
                     return $this->dispatchSync(new UserInitials($user));
