@@ -8,7 +8,7 @@
         {{ img(profilePhoto).class('overflow-hidden rounded-circle')|raw }}
         <p>
             <a href="{{ url_route('profile::profile') }}" class="link-unstyled mb-0">{{ auth_user().name }}</a>
-            {{ addBlock('profile/navigation/username')|raw }}
+{#            {{ addBlock('profile/navigation/username')|raw }}#}
         </p>
     </span>
     <hr class="mt-2">
@@ -37,7 +37,7 @@
             <p>{{ trans('visiosoft.module.profile::stream.adress.name') }}</p>
         </a>
 
-        {{ addBlock('profile/navigation',{'marketPlace':marketPlace})|raw }}
+{#        {{ addBlock('profile/navigation',{'marketPlace':marketPlace})|raw }}#}
 
         <a href="{{ url_route('profile::password') }}"
            class="px-3 link-unstyled{{ app.request.pathinfo == '/profile/password' ? ' active' : '' }}">
@@ -47,7 +47,7 @@
         <a href="{{ url('logout') }}"
            class="px-3 link-unstyled">
             {{ img('visiosoft.module.profile::images/lout.svg').data|raw }}
-            <p>{{ trans('visiosoft.theme.base::field.logout.name') }}</p>
+            <p>{{ trans('visiosoft.theme.sahibinden::field.logout.name') }}</p>
         </a>
     </div>
 </div>
