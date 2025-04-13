@@ -5,10 +5,10 @@ class ForgotPassFormFields
     public function handle(ForgotPassFormBuilder $builder)
     {
         $resetTypeOptions = [
-            'mail' => 'visiosoft.theme.base::field.mail',
+            'mail' => 'visiosoft.theme.sahibinden::field.mail',
         ];
         if (is_module_installed('visiosoft.module.sms')) {
-            $resetTypeOptions['sms'] = 'visiosoft.theme.base::field.sms';
+            $resetTypeOptions['sms'] = 'visiosoft.theme.sahibinden::field.sms';
         }
 
         $builder->setFields(

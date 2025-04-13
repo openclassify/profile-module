@@ -35,7 +35,7 @@ class ForgotPassFormHandler
             if (!is_null($user->gsm_phone)) {
                 event(new SendForgotPasswordSms($user, $password));
             } else {
-                $messages->error(trans('visiosoft.theme.base::message.found_phone'));
+                $messages->error(trans('visiosoft.theme.sahibinden::message.found_phone'));
             }
         } else {
             $password->forgot($user);

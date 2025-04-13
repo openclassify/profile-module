@@ -10,13 +10,10 @@ class CacheController extends PublicController
     {
         $user = auth()->user();
         $profile_img =  $user ? $this->dispatchSync(
-            new MakeImageInstance($user->file ?: 'theme::images/no_profile.svg', 'img')
+            new MakeImageInstance($user->file ?: 'visiosoft.theme.sahibinden::images/no_profile.svg', 'img')
         )->url() : $user;
         $user = $user ? $user->name() : $user;
 
-        $getAddBlockHtml = new addBlock('navigation/dropdown', []);
-        $addBlockHtml = $getAddBlockHtml->handle();
-
-        return ['userName' => $user, 'profileImg' => $profile_img, 'addBlockHtml' => $addBlockHtml];
+        return ['userName' => $user, 'profileImg' => $profile_img];
     }
 }

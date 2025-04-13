@@ -1,4 +1,4 @@
-{% extends "theme::layouts/default" %}
+{% extends "visiosoft.theme.sahibinden::layouts/default" %}
 
 {% block content %}
     {% embed 'visiosoft.module.profile::profile/index' %}
@@ -10,13 +10,13 @@
                              aria-labelledby="nav-profile-tab">
                             <div class="col-12 mb-4 mb-md-5 mt-md-3 px-3 px-sm-5 ">
                                 <h3>{{ trans('visiosoft.module.advs::field.my_ads.name') }}</h3>
-                                {{ addBlock('profile/ads/header')|raw }}
+{#                                {{ addBlock('profile/ads/header')|raw }}#}
                             </div>
                             <div class="col-md-12 advs-section">
                                 <div class=" p-2 py-3 mt-2 rounded">
                                     <a href="{{ url_route('advs::create_adv') }}" class="btn btn-lg btn-outline-primary">
                                         <i class="fas fa-plus-circle"></i>
-                                        {{ trans("visiosoft.theme.base::button.post_ad.name") }}
+                                        {{ trans("visiosoft.theme.sahibinden::button.post_ad.name") }}
                                     </a>
                                     {% if auth_user().hasRole('admin') and setting_value('visiosoft.module.profile::show_extends_actions') %}
                                         <a href="{{ url_route("advs::extendAll") }}" class="btn btn-lg btn-outline-secondary">
@@ -80,7 +80,8 @@
                 var no_ads_message = "{{ trans('visiosoft.module.advs::field.no_ads') }}";
                 let userStatus = JSON.parse(`{{ userStatus|raw }}`);
                 let statusChangeLink = `{{ changeStatusUrl }}`;
-                let dropdownBlock = `{{ addBlock('profile/dropdown-ad', {'id': ':id'})|raw }}`;
+                let dropdownBlock = '';
+                {#let dropdownBlock = `{{ addBlock('profile/dropdown-ad', {'id': ':id'})|raw }}`;#}
                 var changeStatusTrans = "{{ trans('visiosoft.module.profile::field.change_status') }}";
             </script>
             {{ asset_add('scripts.js','visiosoft.module.profile::assets/js/ads.js') }}
